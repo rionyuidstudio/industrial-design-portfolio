@@ -1,0 +1,668 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FORM / FIELD — Design Practice</title>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --paper: #eae7df;
+  --ink: #292a27;
+  --grey: #aaa79d;
+  --clay: #c66c4c;
+  --line: #c9c5bb;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Manrope', sans-serif;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.mono {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+}
+
+/* NAVIGATION */
+
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+  padding: 23px 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(234,231,223,.93);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
+}
+
+.logo {
+  font-weight: 800;
+  font-size: 14px;
+  letter-spacing: -.06em;
+}
+
+nav .links {
+  display: flex;
+  gap: 30px;
+}
+
+nav .links a {
+  font: 10px 'DM Mono', monospace;
+  text-transform: uppercase;
+}
+
+nav a:hover { color: var(--clay); }
+
+/* INTRO */
+
+.intro {
+  padding: 150px 5% 90px;
+}
+
+.topline {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 18px;
+}
+
+.intro-layout {
+  display: grid;
+  grid-template-columns: 1.1fr .9fr;
+  gap: 6%;
+  margin-top: 65px;
+  align-items: center;
+}
+
+h1 {
+  font-size: clamp(75px, 11.5vw, 165px);
+  line-height: .79;
+  letter-spacing: -.105em;
+  font-weight: 600;
+}
+
+h1 .offset {
+  display: block;
+  margin-left: 14%;
+}
+
+.intro-text {
+  margin: 55px 0 0 15%;
+  max-width: 300px;
+  font-size: 13px;
+  line-height: 1.9;
+  color: #74736b;
+}
+
+.hero-image {
+  position: relative;
+  height: 460px;
+}
+
+.hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(.65);
+}
+
+.image-caption {
+  position: absolute;
+  bottom: -25px;
+  left: 0;
+}
+
+/* MARQUEE */
+
+.marquee {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 20px 0;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.marquee div {
+  display: inline-block;
+  animation: move 30s linear infinite;
+  font-size: 12px;
+  letter-spacing: .12em;
+}
+
+.marquee span { margin: 0 40px; }
+
+@keyframes move {
+  to { transform: translateX(-50%); }
+}
+
+/* SECTION HEADINGS */
+
+section.content {
+  padding: 120px 5%;
+}
+
+.heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  padding-bottom: 30px;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 55px;
+}
+
+.heading h2 {
+  font-size: clamp(55px, 8vw, 100px);
+  line-height: .85;
+  letter-spacing: -.09em;
+  font-weight: 600;
+}
+
+/* PROJECTS */
+
+.projects {
+  display: grid;
+  grid-template-columns: 1.1fr .9fr;
+  gap: 90px 8%;
+}
+
+.project:nth-child(even) {
+  margin-top: 150px;
+}
+
+.project-image {
+  overflow: hidden;
+  background: #d5d1c7;
+}
+
+.project-image img {
+  width: 100%;
+  height: 440px;
+  object-fit: cover;
+  display: block;
+  filter: saturate(.75);
+  transition: transform .8s;
+}
+
+.project:hover img {
+  transform: scale(1.04);
+}
+
+.project:nth-child(even) img {
+  height: 340px;
+}
+
+.project-info {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 17px;
+}
+
+.project h3 {
+  font-size: 26px;
+  letter-spacing: -.06em;
+  margin: 10px 0;
+}
+
+.project p {
+  color: #77756d;
+  font-size: 12px;
+  line-height: 1.8;
+  max-width: 330px;
+}
+
+.project .mono { color: #77756d; }
+
+/* STATEMENT */
+
+.statement {
+  background: var(--clay);
+  padding: 120px 8%;
+}
+
+.statement h2 {
+  font-size: clamp(60px, 10vw, 135px);
+  letter-spacing: -.09em;
+  line-height: .88;
+  font-weight: 600;
+}
+
+.statement p {
+  margin: 45px 0 0 auto;
+  max-width: 350px;
+  font-size: 13px;
+  line-height: 1.9;
+}
+
+/* MATERIALS */
+
+.materials {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.material img {
+  width: 100%;
+  height: 290px;
+  object-fit: cover;
+  filter: saturate(.7);
+  transition: .5s;
+}
+
+.material:hover img { filter: saturate(1); }
+
+.material p {
+  padding-top: 14px;
+}
+
+/* ABOUT */
+
+.about {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 120px 5%;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12%;
+}
+
+.about h2 {
+  font-size: clamp(60px, 9vw, 120px);
+  line-height: .85;
+  letter-spacing: -.09em;
+  margin-top: 40px;
+}
+
+.about-copy {
+  padding-top: 65px;
+  color: #c0bdb4;
+  font-size: 13px;
+  line-height: 2.1;
+}
+
+.about-copy p { margin-bottom: 25px; }
+
+/* CONTACT */
+
+.contact {
+  padding: 120px 5%;
+}
+
+.contact h2 {
+  font-size: clamp(65px, 13vw, 175px);
+  letter-spacing: -.11em;
+  line-height: .85;
+  margin: 60px 0;
+}
+
+.contact-bottom {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--line);
+  padding-top: 25px;
+  gap: 20px;
+}
+
+.contact-bottom a {
+  border-bottom: 1px solid var(--ink);
+  padding-bottom: 5px;
+}
+
+footer {
+  border-top: 1px solid var(--line);
+  padding: 25px 5%;
+  display: flex;
+  justify-content: space-between;
+  color: #85837b;
+}
+
+/* ANIMATIONS */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(25px);
+  transition: .9s ease;
+}
+
+.reveal.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* MOBILE */
+
+@media(max-width: 750px) {
+  nav .links { gap: 12px; }
+  nav .links a { font-size: 8px; }
+
+  .intro-layout,
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .intro { padding-top: 120px; }
+
+  h1 { font-size: 19vw; }
+
+  .intro-text {
+    margin: 35px 0;
+  }
+
+  .hero-image { height: 340px; }
+
+  section.content { padding: 85px 5%; }
+
+  .heading {
+    flex-direction: column;
+    align-items: start;
+    gap: 25px;
+  }
+
+  .projects { grid-template-columns: 1fr; gap: 55px; }
+
+  .project:nth-child(even) { margin-top: 0; }
+
+  .project-image img,
+  .project:nth-child(even) img {
+    height: 320px;
+  }
+
+  .materials { grid-template-columns: 1fr 1fr; }
+
+  .material img { height: 190px; }
+
+  .about-copy { padding-top: 10px; }
+
+  footer {
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+}
+
+@media(prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <a class="logo" href="#">FORM / FIELD®</a>
+  <div class="links">
+    <a href="#work">Work</a>
+    <a href="#materials">Materials</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact ↗</a>
+  </div>
+</nav>
+
+<!-- INTRODUCTION -->
+
+<section class="intro">
+  <div class="topline mono">
+    <span>Independent Design Practice</span>
+    <span>Sydney / Australia — 2026</span>
+  </div>
+
+  <div class="intro-layout">
+    <div>
+      <div class="mono">Objects / Systems / Materials</div>
+
+      <h1>
+        Form
+        <span class="offset">follows</span>
+        curiosity.
+      </h1>
+
+      <p class="intro-text">
+        An exploration of the relationship between
+        material, function and human experience.
+        Designing objects that question the ordinary
+        and investigate the possible.
+      </p>
+    </div>
+
+    <div class="hero-image">
+      <img src="https://images.unsplash.com/photo-1490312278390-ab64016e0aa9?auto=format&fit=crop&w=1200&q=85" alt="Architectural form study">
+      <div class="image-caption mono">FIG. 001 — FORM STUDY / 2026</div>
+    </div>
+  </div>
+</section>
+
+<!-- MOVING TEXT -->
+
+<div class="marquee">
+  <div>
+    <span>THOUGHTFUL OBJECTS ✳</span>
+    <span>MATERIAL EXPLORATION ✳</span>
+    <span>INDUSTRIAL DESIGN ✳</span>
+    <span>HUMAN EXPERIENCE ✳</span>
+    <span>THOUGHTFUL OBJECTS ✳</span>
+    <span>MATERIAL EXPLORATION ✳</span>
+    <span>INDUSTRIAL DESIGN ✳</span>
+  </div>
+</div>
+
+<!-- PROJECTS -->
+
+<section class="content" id="work">
+  <div class="heading reveal">
+    <div>
+      <div class="mono">01 / Portfolio archive</div>
+      <h2>Selected<br>works.</h2>
+    </div>
+    <div class="mono">2024 — 2026 / 04 PROJECTS</div>
+  </div>
+
+  <div class="projects">
+
+    <article class="project reveal">
+      <div class="project-image">
+        <img src="https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=1000&q=85" alt="Lighting design">
+      </div>
+      <div class="project-info mono">
+        <span>001 / PRODUCT DESIGN</span>
+        <span>2026</span>
+      </div>
+      <h3>Light in form.</h3>
+      <p>Exploring the relationship between illumination, structure and material expression.</p>
+    </article>
+
+    <article class="project reveal">
+      <div class="project-image">
+        <img src="https://images.unsplash.com/photo-1494438639946-1ebd1d20bf85?auto=format&fit=crop&w=1000&q=85" alt="Object design">
+      </div>
+      <div class="project-info mono">
+        <span>002 / OBJECT DESIGN</span>
+        <span>2025</span>
+      </div>
+      <h3>Domestic study.</h3>
+      <p>A study of functional objects and their relationship with everyday rituals.</p>
+    </article>
+
+    <article class="project reveal">
+      <div class="project-image">
+        <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1000&q=85" alt="Spatial design">
+      </div>
+      <div class="project-info mono">
+        <span>003 / CONCEPT</span>
+        <span>2025</span>
+      </div>
+      <h3>Spatial thinking.</h3>
+      <p>Investigating the intersection of spatial organisation, movement and human behaviour.</p>
+    </article>
+
+    <article class="project reveal">
+      <div class="project-image">
+        <img src="https://images.unsplash.com/photo-1490312278390-ab64016e0aa9?auto=format&fit=crop&w=1000&q=85" alt="Material study">
+      </div>
+      <div class="project-info mono">
+        <span>004 / MATERIAL STUDY</span>
+        <span>2024</span>
+      </div>
+      <h3>Material language.</h3>
+      <p>An investigation into how materials influence the character and experience of objects.</p>
+    </article>
+
+  </div>
+</section>
+
+<!-- STATEMENT -->
+
+<section class="statement">
+  <div class="mono">A DESIGN POSITION / 001</div>
+  <h2 class="reveal">
+    Not everything<br>
+    needs to be<br>
+    reinvented.
+  </h2>
+  <p>
+    Sometimes meaningful innovation begins
+    with looking at something familiar from
+    an entirely different perspective.
+  </p>
+</section>
+
+<!-- MATERIAL INDEX -->
+
+<section class="content" id="materials">
+  <div class="heading reveal">
+    <div>
+      <div class="mono">02 / Research & experimentation</div>
+      <h2>Material<br>index.</h2>
+    </div>
+    <div class="mono">Texture / Surface / Structure</div>
+  </div>
+
+  <div class="materials">
+    <div class="material reveal">
+      <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=700&q=85" alt="Stone">
+      <p class="mono">01 / STONE</p>
+    </div>
+
+    <div class="material reveal">
+      <img src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=700&q=85" alt="Material">
+      <p class="mono">02 / ORGANIC</p>
+    </div>
+
+    <div class="material reveal">
+      <img src="https://images.unsplash.com/photo-1519710164239-da123dc03ef4?auto=format&fit=crop&w=700&q=85" alt="Composition">
+      <p class="mono">03 / COMPOSITION</p>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+
+<section class="about" id="about">
+  <div class="about-grid">
+    <div class="reveal">
+      <div class="mono">03 / The designer</div>
+      <h2>Thinking<br>through<br>making.</h2>
+    </div>
+
+    <div class="about-copy reveal">
+      <p>
+        I approach design as an ongoing process
+        of observation, experimentation and refinement.
+      </p>
+
+      <p>
+        My interests sit at the intersection of
+        industrial design, material exploration
+        and the everyday experiences that shape
+        our relationship with objects.
+      </p>
+
+      <p>
+        From initial sketches to physical prototypes
+        and final outcomes, I believe every detail
+        contributes to the experience of a designed object.
+      </p>
+
+      <div class="mono">OBSERVE — QUESTION — EXPLORE — REFINE</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+
+<section class="contact" id="contact">
+  <div class="mono">04 / Start a conversation</div>
+
+  <h2 class="reveal">
+    Let's make<br>
+    something<br>
+    matter.
+  </h2>
+
+  <div class="contact-bottom">
+    <div>
+      <div class="mono">Available for collaboration</div>
+      <p style="font-size:12px;margin-top:12px;color:#777">
+        Have an idea? Let's talk.
+      </p>
+    </div>
+
+    <a href="mailto:YOUR-EMAIL@example.com">
+      GET IN TOUCH ↗
+    </a>
+  </div>
+</section>
+
+<footer class="mono">
+  <span>FORM / FIELD® — 2026</span>
+  <span>INDEPENDENT DESIGN PRACTICE</span>
+  <span>SYDNEY / AUSTRALIA</span>
+</footer>
+
+<script>
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('show');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12 });
+
+document.querySelectorAll('.reveal').forEach(element => {
+  observer.observe(element);
+});
+</script>
+
+</body>
+</html>
